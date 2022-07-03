@@ -29,4 +29,11 @@ public class NoteController {
         return noteService.getNotes();
     }
 
+    @DeleteMapping(value="/del")
+    public void deleteNote(@RequestParam Long id)
+    {
+        noteService.deleteNote(id);
+    }
+
+
 }
