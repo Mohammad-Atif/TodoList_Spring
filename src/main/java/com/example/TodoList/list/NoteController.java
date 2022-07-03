@@ -35,5 +35,10 @@ public class NoteController {
         noteService.deleteNote(id);
     }
 
+    @PutMapping(value = "/update")
+    public void changeNote(@RequestParam Long id,@RequestParam String note)
+    {
+        noteService.updateNote(id,note);
+    }
 
 }
