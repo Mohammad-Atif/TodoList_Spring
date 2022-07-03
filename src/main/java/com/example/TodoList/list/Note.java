@@ -1,9 +1,26 @@
 package com.example.TodoList.list;
 
 
+
+
+
+import javax.persistence.*;
+
+@Entity
+@Table
 public class Note {
     private String note;
-    private int id;
+    @Id
+    @SequenceGenerator(
+            name = "student_sequence",
+            sequenceName ="student_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "student_sequence"
+    )
+    private Long id;
 
     public Note() {
     }
@@ -16,11 +33,11 @@ public class Note {
         this.note = note;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -31,4 +48,5 @@ public class Note {
                 ", id=" + id +
                 '}';
     }
+
 }
